@@ -1,0 +1,775 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Peulis | Travel Agency & Tourism HTML Template">
+    <meta name="keyword" content="travel, tourism, agency, tourist">
+    <meta name="author" content="Themescare">
+    <!-- Title -->
+    <title>inspiringegypttours.com</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static  'assets/img/favicon/favicon-32x32.png'%}">
+    <!--Bootstrap css-->
+    <link rel="stylesheet" href="{% static  'assets/css/bootstrap.css'%}">
+    <!--Font Awesome css-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href=" {% static  'assets/css/font-awesome.min.css'%}">
+    <!--Flaticon css-->
+
+    <link rel="stylesheet" href="{% static  'assets/flaticon/flaticon.css'%}">
+    <!--Animatedheadline css-->
+
+    <link rel="stylesheet" href="{% static   'assets/css/jquery.animatedheadline.css'%}">
+    <!--Magnific css-->
+
+    <link rel="stylesheet" href=" {% static  'assets/css/magnific-popup.css'%}">
+    <!--Owl-Carousel css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href=" {% static  'assets/css/owl.theme.default.min.css'%}">
+
+
+    <!--Animate css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/animate.min.css'%}">
+    <!--Datepicker css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/jquery.datepicker.css'%}">
+
+    <!--Nice Select css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/nice-select.css'%}">
+
+    <!--Slicknav css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/slicknav.min.css'%}">
+
+    <!--Site Main Style css-->
+    <link rel="stylesheet" href="  {% static  'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+
+
+    <style>
+
+    .peulis-slider-area {
+    	position: relative;
+    	margin-top: -45px
+    }
+
+    .slider-container {
+    	background-size: cover;
+    	height: 100vh;
+    }
+
+
+    </style>
+
+<body>
+
+
+    <!--Preloader Start-->
+    <div class="preloader">
+        <div class="loading-text">
+            <span class="loading-text-words" data-preloader="L">L</span>
+            <span class="loading-text-words" data-preloader="O">O</span>
+            <span class="loading-text-words" data-preloader="A">A</span>
+            <span class="loading-text-words" data-preloader="D">D</span>
+            <span class="loading-text-words" data-preloader="I">I</span>
+            <span class="loading-text-words" data-preloader="N">N</span>
+            <span class="loading-text-words" data-preloader="G">G</span>
+        </div>
+    </div>
+    <!--Preloader End-->
+
+   <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-2c4946e5-0acd-4fd4-93cd-faeffac64987"></div>
+    <!-- Header Area Start -->
+    <header class="peulis-header-area">
+        <!-- Header Top Area Start -->
+        <div class="header-top-area">
+            <div class="container">
+               <div class="row">
+                 {% for Info in Infoo %}
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="header-top-left">
+                            <p>
+                                <i class="fa fa-envelope"></i>
+                                {{Info.email}}
+                            </p>
+                            <p>
+                                <i class="fa fa-phone"></i>
+                              {{Info.phone_number}}
+                            </p>
+                        </div>
+                    </div>
+                  {% endfor %}
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="header-top-right">
+                            <div class="header-top-social">
+                              <ul>
+                                  <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                  <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                              </ul>
+                            </div>
+                            <div class="header-top-auth">
+                                <ul>
+                                    <li><i class="fas fa-user"></i></li>
+                                    {% if request.user.is_authenticated %}
+                                      <li><a href="{% url 'logout'%}">logout  </a></li>
+                                      <li><a href="  {% url 'accounts:profile_edit'%}">profile_edit </a></li>
+
+                                       {% else %}
+
+                                     <li class="separator"><a href="{% url 'accounts:user_login'%}">Login</a></li>
+                                     <li><a href="{% url 'accounts:signup'%}">Register</a></li>
+                                     {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Top Area End -->
+
+        <!-- Main Header Area Start -->
+        <div class="main-header-area">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header_inn">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="site-logo">
+                                        <a href="{% url 'project:baset'%}">
+                                            <img src="{% static 'assets/img/logo.png'%}"  alt="Peulis" style="width:40%" />
+                                        </a>
+                                    </div>
+                                    <!-- Responsive Menu Start -->
+                                    <div class="peulis-responsive-menu"></div>
+                                    <!-- Responsive Menu End -->
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="mainmenu">
+                                        <nav>
+                                            <ul id="navigation_menu">
+                                                <li class="active"><a href="{% url 'project:index'%}">Home</a></li>
+                                                <li>
+
+                                                  <li>
+                                                    <li>
+                                                      <a href="{% url 'property:property_list'%}"> Day Tours</a>
+                                                  </li>
+                                                  <li>
+                                                    <a href="{% url 'nilecruise:cnilecruise_list'%}"> Nile Cruise</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'packages:packages_list'%}">Tour Paskages</a>
+
+                                                </li>
+
+
+
+
+                                                <li>
+                                                    <a href="{% url 'project:all_posts' %}">Blog</a>
+                                                <li><a href="{% url 'contact:contact' %}">Contact</a></li>
+                                              </li>
+                                              <li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="header_action">
+                                        <ul>
+                                            <li class="header-search">
+                                                <a href="#" class="search-btn">
+                                                    <i class="fa fa-search"></i>
+                                                </a>
+                                                <div class="search-box search-elem">
+                                                    <span class="search-close"></span>
+                                                    <div class="inner row">
+                                                        <form>
+                                                            <input type="search" placeholder="Type to Search...">
+                                                            <button type="submit"><i class="fa fa-search"></i></button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li><a href="#" id="sidenav-toggle"><i class="fa fa-bars"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Header Area End -->
+    </header>
+    <!-- Header Area End -->
+
+
+    <!-- Slider Area Start -->
+   {% for slideImages in slideImagess %}
+    <section class="peulis-slider-area overlay" >
+
+        <div class="peulis-slide owl-carousel">
+          <!--  <div class="slider-container slider-1">-->
+
+                <div class="single-slider zoom"><img src="{{slideImages.image1.url}}" ></div>
+          <!--  </div>-->
+          <!--  <div class="slider-container slider-2">-->
+                <div class="single-slider zoom"><img src="{{slideImages.image2.url}}"></div>
+                <div class="single-slider zoom"><img src="{{slideImages.image3.url}}"></div>
+                  <div class="single-slider zoom"><img src="{{slideImages.image4.url}}"></div>
+                           {% endfor %}
+          <!--  </div>-->
+        </div>
+
+    </section>
+    <!-- Slider Area End -->
+
+      <section class="peulis-destination-area section_70">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="site-heading">
+                          <h2>Destinations</h2>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="destination-slider owl-carousel">
+                        <div class="single-destination">
+                            <a href="#">
+                                <div class="destination-image">
+                                    <img src="{% static  'assets/img/l.jpg'%}" alt="destination" />
+                                    <div class="destination-title">
+                                        <h3>Luxor</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="single-destination">
+                            <a href="#">
+                                <div class="destination-image">
+                                    <img src="{% static  'assets/img/as.jpg'%}" alt="destination" />
+                                    <div class="destination-title">
+                                        <h3>Aswan</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="single-destination">
+                            <a href="#">
+                                <div class="destination-image">
+                                    <img src="{% static  'assets/img/Hurghada_41210.jpg'%}" alt="destination" />
+                                    <div class="destination-title">
+                                        <h3>Hurghada</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="single-destination">
+                            <a href="#">
+                                <div class="destination-image">
+                                    <img src="{% static  'assets/img/c.jpg'%}" alt="destination" />
+                                    <div class="destination-title">
+                                        <h3>Cairo</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+    <!-- Destination Area End -->
+
+    <!-- Popular Tours Area Start -->
+    <section class="peulis-popular-tours-area section_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="site-heading">
+                        <h2>tour packages</h2>
+                        <p>Egypt Tour Packages give you the chance to experience all what Egypt has to offer with our well-selected exclusive private Egypt Travel Packages. We are offering a wide range of tours to Egypt that suits any taste, mixing classic tours of Ancient Egypt with Nile cruises, city tours, diving holidays, and adventures in the desert. Check our trips to Egypt now and pick your favorite one!.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                {% for packages in packagess %}
+                <div class="col-lg-4">
+                    <div class="single-popular-tour">
+                        <div class="popular-tour-image">
+                            <img src="{{packages.image.url}}" alt="Popular Tours" />
+                            <div class="popular-tour-hover">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-share-alt"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="popular-tour-desc">
+                            <div class="tour-desc-top">
+                                <h3><a href="{{packages.get_absolute_url}}">{{packages}}</a></h3>
+                                <div class="tour_duration">
+                                    <p>
+                                        {{packages.description|safe|truncatewords_html:3}}
+                                    </p>
+                                </div>
+                                <div class="tour-desc-heading">
+                                    <div class="tour-rating">
+                                        <ul>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tour_feature">
+                                        <a href="#"><i class="fa fa-plane"></i></a>
+                                        <a href="#"><i class="fa fa-building-o"></i></a>
+                                        <a href="#"><i class="fa fa-cutlery"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-desc-bottom">
+                                <div class="tour-details">
+                                    <a href="{{packages.get_absolute_url}}"><i class="fa fa-flag"></i> Book Now</a>
+                                </div>
+                                <div class="tour-desc-price">
+                                    <p>${{packages.price}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- Popular Tours Area End -->
+
+    <!-- Popular Tours Area Start -->
+    <section class="peulis-popular-tours-area section_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="site-heading">
+                        <h2>Nile cruise Luxor Aswan</h2>
+                        <p>The Nile Cruise from Luxor to Aswan takes 5 days and vice versa from Aswan to Luxor 4 days. You also have the option to go on a round Nile cruise from Luxor to Luxor or from Aswan to Aswan. In all these options the sightseeing tours are the same..</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                {% for nilecruise in Nilecruisee %}
+                <div class="col-lg-4">
+                    <div class="single-popular-tour">
+                        <div class="popular-tour-image">
+                            <img src="{{nilecruise.image.url}}" alt="Popular Tours" />
+                            <div class="popular-tour-hover">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-share-alt"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="popular-tour-desc">
+                            <div class="tour-desc-top">
+                                <h3><a href="{{nilecruise.get_absolute_url}}">{{nilecruise}}</a></h3>
+                                <div class="tour_duration">
+                                    <p>
+
+                                        {{nilecruise.description|safe|truncatewords_html:3}}
+                                    </p>
+                                </div>
+                                <div class="tour-desc-heading">
+                                    <div class="tour-rating">
+                                        <ul>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tour_feature">
+                                        <a href="#"><i class="fa fa-plane"></i></a>
+                                        <a href="#"><i class="fa fa-building-o"></i></a>
+                                        <a href="#"><i class="fa fa-cutlery"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-desc-bottom">
+                                <div class="tour-details">
+                                    <a href="{{nilecruise.get_absolute_url}}"><i class="fa fa-flag"></i> Book Now</a>
+                                </div>
+                                <div class="tour-desc-price">
+                                    <p>${{nilecruise.price}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- Popular Tours Area End -->
+
+    <!-- Popular Tours Area Start -->
+    <section class="peulis-popular-tours-area section_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="site-heading">
+                        <h2>Day tours</h2>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+              {% for property in Propertyrytt %}
+                <div class="col-lg-4">
+                    <div class="single-popular-tour">
+                        <div class="popular-tour-image">
+                            <img src="{{property.image.url}}" alt="Popular Tours" />
+                            <div class="popular-tour-hover">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-share-alt"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="popular-tour-desc">
+                            <div class="tour-desc-top">
+                                <h3><a href="{{property.get_absolute_url}}">{{property}}</a></h3>
+                                <div class="tour_duration">
+                                    <p>
+
+                                        {{property.description|safe|truncatewords_html:3}}
+                                    </p>
+                                </div>
+                                <div class="tour-desc-heading">
+                                    <div class="tour-rating">
+                                        <ul>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tour_feature">
+                                        <a href="#"><i class="fa fa-plane"></i></a>
+                                        <a href="#"><i class="fa fa-building-o"></i></a>
+                                        <a href="#"><i class="fa fa-cutlery"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-desc-bottom">
+                                <div class="tour-details">
+                                    <a href="{{property.get_absolute_url}}"><i class="fa fa-flag"></i> Book Now</a>
+                                </div>
+                                <div class="tour-desc-price">
+                                    <p>${{property.price}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- Popular Tours Area End -->
+
+
+        <section class="peulis-choose-area section_70">
+            <div class="container">
+                <div class="row">
+                  {% for whypeulis in whypeuliss %}
+                    <div class="col-lg-12">
+                        <div class="site-heading">
+                            <h2>Why Peulis?</h2>
+                            <p>{{whypeulis.name}}.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="single-choose">
+                            <p>01</p>
+                            <div class="choose-image">
+                                <img src="{{whypeulis.imagequality.url}}" alt="Safe Travel" />
+                            </div>
+                            <div class="choose-desc">
+                                <h3>{{whypeulis.namequality}}</h3>
+                                <p>{{whypeulis.nameequalitytitle}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="single-choose">
+                            <p>02</p>
+                            <div class="choose-image">
+                                <img src="{{whypeulis.imagetrust.url}}" alt="Awesome Guide" />
+                            </div>
+                            <div class="choose-desc">
+                                <h3>{{whypeulis.trust}}</h3>
+                                <p>{{whypeulis.nametrustytitle}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="single-choose">
+                            <p>03</p>
+                            <div class="choose-image">
+                                <img src="{{whypeulis.imageqprofessionalism.url}}" alt="Save Money" />
+                            </div>
+                            <div class="choose-desc">
+                                <h3>{{whypeulis.professionalism}}</h3>
+                                <p>{{whypeulis.nameprofessionalismtitle}}</p>
+                            </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+     <!-- Choose Area End -->
+
+       <!-- Reviews Area Start -->
+       <section class="peulis-blog-area section_70">
+     <div class="container">
+      <div class="card">
+        <h3 class="card-title" >Blog Area</h3>
+        <div class="card-body">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="site-heading">
+                    <form method = "Post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      {{ form.media }}
+                      {% bootstrap_form comment_form %}
+                      {% buttons %}
+                      <button type="submit" class="btn btn-success">Save Comment</button>
+                       {% endbuttons %}
+                    </form>
+         </div>
+        </div>
+      </div>
+    </section>
+
+       <!-- Reviews Area Start -->
+       <section class="peulis-reviews-area section_70">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-lg-12">
+                             {% for comment in comments %}
+                         <div class="reviews-slider owl-carousel">
+                             <div class="single-reviews">
+                                 <div class="reviews-image">
+                                     <img src="{{comment.image.url}}" alt="reviews-1" />
+                                 </div>
+                                 <div class="reviews-text">
+                                     <div class="reviewer">
+                                         <h3>{{comment.name }}</h3>
+                                     </div>
+                                     <p>"{{ comment.body | linebreaks }}"</p>
+                                 </div>
+                             </div>
+                                    {% endfor %}
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </section>
+         <!-- Reviews Area En
+
+        </div>
+    </section>
+
+
+
+    <! Blog Area Start -->
+    <section class="peulis-blog-area section_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="site-heading">
+                        <h2>Latest Posts</h2>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for Post in Propertyrft %}
+                <div class="col-lg-6">
+                    <div class="single-blog-item">
+                        <div class="blog-image">
+                            <a href="single-blog.html">
+                                <img src="{{Post.image.url}}" alt="blog" />
+                            </a>
+                        </div>
+                        <div class="blog-desc">
+                            <div class="post-meta">
+                                <p class="date">{{Post.created}}</p>
+                                <p>By <a href="#">Admin</a></p>
+                                <p><a href="#">3 comments</a></p>
+                            </div>
+                            <h3><a href="{% url 'project:all_posts' %}">{{Post}}</a></h3>
+                            <p>{{Post.content|safe|truncatewords:30}}</p>
+                        </div>
+                    </div>
+                </div>
+               {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Area End -->
+
+
+
+
+            <!-- Footer Area Start -->
+            <footer class="peulis-footer-area">
+                <div class="footer-top-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="single-footer">
+                                    <p> </p>
+                                    <div class="footer-logo">
+                                        <a href="{% url 'project:index'%}">
+                                            <img src="#" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="single-footer">
+                                    <h3>About Us</h3>
+                                    <ul>
+                                        <li><a href="{% url 'about:aboutList'%}">Why Us</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="single-footer">
+                                    <h3>Support</h3>
+                                    <ul>
+
+                                        <li><a href="{% url 'about:Privacy_List' %}">Privacy & Policy</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="single-footer">
+                                    <h3></h3>
+                                    <p></p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+              <div class="footer-bottom-area">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-lg-12">
+                              <div class="footer-bottom-box">
+                                  <div class="row">
+                                      <div class="col-lg-6 col-sm-6">
+                                          <div class="footer-bottom-left">
+                                              <p>All rights reserved . Developed By <a href="#"> profe mahmoud</a></p>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6 col-sm-6">
+                                          <div class="footer-bottom-left">
+                                              <ul>
+                                                  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                  <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                  <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                                              </ul>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </footer>
+            <!-- Footer Area End -->
+
+
+
+
+    <script src="{% static 'assets/js/jquery.min.js'%}"></script>
+    <!-- Popper JS -->
+
+    <script src="{% static 'assets/js/popper.min.js'%}"></script>
+    <!--Bootstrap js-->
+
+    <script src=" {% static 'assets/js/bootstrap.min.js'%}"></script>
+    <!--Owl-Carousel js-->
+
+    <script src="{% static 'assets/js/owl.carousel.min.js'%}"></script>
+    <!--Animatedheadline js-->
+
+    <script src="{% static 'assets/js/jquery.animatedheadline.min.js'%}"></script>
+    <!--Slicknav js-->
+
+    <script src=" {% static 'assets/js/jquery.slicknav.min.js'%}"></script>
+    <!--Magnific js-->
+
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js'%}"></script>
+    <!-- Datepicker -->
+
+    <script src="{% static 'assets/js/jquery.datepicker.min.js'%}"></script>
+    <!--Nice Select js-->
+
+
+    <script src="{% static 'assets/js/jquery.nice-select.min.js'%}"></script>
+    <!-- Way Points JS -->
+
+    <script src="{% static 'assets/js/waypoints-min.js'%}"></script>
+    <!--Main js-->
+    <script src="{% static 'assets/js/main.js'%}"></script>
+</body
+</html>

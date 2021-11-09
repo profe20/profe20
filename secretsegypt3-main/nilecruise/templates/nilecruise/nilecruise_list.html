@@ -1,0 +1,355 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+<body>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <style media="screen">
+      button,
+      input {
+          font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+      }
+
+      .nav-link{
+          color: #f96332;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus {
+          color: #f96332;
+      }
+
+      p {
+          line-height: 1.61em;
+          font-weight: 300;
+          font-size: 1.2em;
+      }
+
+      .category {
+          text-transform: capitalize;
+          font-weight: 700;
+          color: #9A9A9A;
+      }
+
+      .nav-item .nav-link,
+      .nav-tabs .nav-link {
+          -webkit-transition: all 300ms ease 0s;
+          -moz-transition: all 300ms ease 0s;
+          -o-transition: all 300ms ease 0s;
+          -ms-transition: all 300ms ease 0s;
+          transition: all 300ms ease 0s;
+      }
+
+      .cardnav .nav-link {
+          -webkit-transition: all 150ms ease 0s;
+          -moz-transition: all 150ms ease 0s;
+          -o-transition: all 150ms ease 0s;
+          -ms-transition: all 150ms ease 0s;
+          transition: all 150ms ease 0s;
+      }
+
+      [data-toggle="collapse"][data-parent="#accordion"] i {
+          -webkit-transition: transform 150ms ease 0s;
+          -moz-transition: transform 150ms ease 0s;
+          -o-transition: transform 150ms ease 0s;
+          -ms-transition: all 150ms ease 0s;
+          transition: transform 150ms ease 0s;
+      }
+
+      [data-toggle="collapse"][data-parent="#accordion"][aria-expanded="true"] i {
+          filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+          -webkit-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+      }
+
+
+      .fa {
+          display: inline-block;
+          font: normal normal normal 14px/1 'Nucleo    Outline';
+          font-size: inherit;
+          speak: none;
+          text-transform: none;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+      }
+
+      @-webkit-keyframes nc-icon-spin {
+          0% {
+              -webkit-transform: rotate(0deg);
+          }
+
+          100% {
+              -webkit-transform: rotate(360deg);
+          }
+      }
+
+      @-moz-keyframes nc-icon-spin {
+          0% {
+              -moz-transform: rotate(0deg);
+          }
+
+          100% {
+              -moz-transform: rotate(360deg);
+          }
+      }
+
+      @keyframes nc-icon-spin {
+          0% {
+              -webkit-transform: rotate(0deg);
+              -moz-transform: rotate(0deg);
+              -ms-transform: rotate(0deg);
+              -o-transform: rotate(0deg);
+              transform: rotate(0deg);
+          }
+
+          100% {
+              -webkit-transform: rotate(360deg);
+              -moz-transform: rotate(360deg);
+              -ms-transform: rotate(360deg);
+              -o-transform: rotate(360deg);
+              transform: rotate(360deg);
+          }
+      }
+
+
+      .nav-tabs {
+          border: 0;
+          padding: 15px 0.7rem;
+      }
+
+      .nav-tabs:not(.nav-tabs-neutral)>.nav-item>.nav-link.active {
+          box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.3);
+      }
+
+      .cardnav .nav-tabs {
+          border-top-right-radius: 0.1875rem;
+          border-top-left-radius: 0.1875rem;
+      }
+
+      .nav-tabs>.nav-item>.nav-link {
+          color: #888888;
+          margin: 0;
+          margin-right: 5px;
+          background-color: transparent;
+          border: 1px solid transparent;
+          border-radius: 30px;
+          font-size: 14px;
+          padding: 11px 23px;
+          line-height: 1.5;
+      }
+
+      .nav-tabs>.nav-item>.nav-link:hover {
+          background-color: transparent;
+      }
+
+      .nav-tabs>.nav-item>.nav-link.active {
+          background-color: #ff6e00;
+          border-radius: 30px;
+          color: #FFFFFF;
+      }
+
+      .nav-tabs>.nav-item>.nav-link i.now-ui-icons {
+          font-size: 14px;
+          position: relative;
+          top: 1px;
+          margin-right: 3px;
+      }
+
+      .nav-tabs.nav-tabs-neutral>.nav-item>.nav-link {
+          color: #FFFFFF;
+      }
+
+      .nav-tabs.nav-tabs-neutral>.nav-item>.nav-link.active {
+          background-color: rgba(255, 255, 255, 0.2);
+          color: #FFFFFF;
+      }
+
+      .cardnav {
+          border: 0;
+          border-radius: 0.1875rem;
+          display: inline-block;
+          position: relative;
+          width: 100%;
+          margin-bottom: 30px;
+          box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      .cardnav .card-header {
+          background-color: transparent;
+          border-bottom: 0;
+          background-color: transparent;
+          border-radius: 0;
+          padding: 0;
+      }
+
+          color: #FFFFFF;
+      }
+
+
+      @font-face {
+        font-family: 'Nucleo Outline';
+        src: url("https://github.com/creativetimofficial/now-ui-kit/blob/master/assets/fonts/nucleo-outline.eot");
+        src: url("https://github.com/creativetimofficial/now-ui-kit/blob/master/assets/fonts/nucleo-outline.eot") format("embedded-opentype");
+        src: url("https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/fonts/nucleo-outline.woff2");
+        font-weight: normal;
+        font-style: normal;
+
+      }
+
+
+      @media screen and (max-width: 768px) {
+
+          .nav-tabs {
+              display: inline-block;
+              width: 110%;
+              padding-left: 100px;
+              padding-right: 100px;
+              text-align: center;
+              justify-content:center;
+          }
+
+           .nav-item
+           {
+               justify-content:start;
+           }
+          .nav-tabs .nav-item>.nav-link {
+              margin-bottom: 5px;
+          }
+
+          .tab
+          {
+               justify-content:center;
+          }
+      }
+    </style>
+
+    <!-- Main Header Area End -->
+    </header>
+    <!-- Header Area End -->
+    <!-- Breadcrumb Area Start -->
+    <section class="peulis-breadcrumb-area">
+        <div class="breadcrumb-top">
+            <div class="container">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-box">
+                        <h2>Tour Nile Cruise</h2>
+                        <ul class="breadcrumb-inn">
+                            <li><a href="{% url 'project:index'%}">Home</a></li>
+                            <li class="active"><a href="#">Tour Nile Cruise</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+    <!-- Tour Page Start -->
+    <section class="peulis-tour-page-area section_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="sidebar-widget">
+                        <div class="single-sidebar">
+                            <h3></h3>
+                            <div class="">
+
+                            </div>
+                        </div>
+                        <div class="single-sidebar">
+                            <div class="quick_contact">
+                                <h4>Quick Contact</h4>
+                                <p>
+                                    <i class="fa fa-phone"></i>
+                                    01090944774
+                                </p>
+                                <p>
+                                    <i class="fa fa-envelope"></i>
+                                    info@inspiringegypttours.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="tour-page-right">
+                        <div class="row">
+
+                        </div>
+
+
+                        <div class="row">
+
+                            {% for nilecruise in object_list %}
+
+                            <div class="col-lg-6">
+                                <div class="single-popular-tour">
+
+                                    <div class="popular-tour-image">
+
+                                        <img src=url({{nilecruise.image.url}}" alt="Popular Tours" />
+                                        <img src="{{nilecruise.image.url}}">
+
+
+                                        <div class="popular-tour-hover">
+                                            <ul>
+                                              <li><a href="#"><i class="fas fa-eye"></i></a></li>
+                                              <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                              <li><a href="#"><i class="fas fa-share-alt"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="popular-tour-desc">
+                                        <div class="tour-desc-top">
+                                            <h3><a href="{{nilecruise.get_absolute_url}}">{{nilecruise}} </a></h3>
+                                            <div class="tour_duration">
+                                                <p>
+                                                    <h3>{{nilecruise.description|safe|truncatewords_html:3}}</h3>
+                                                </p>
+                                            </div>
+                                            <div class="tour-desc-heading">
+                                                <div class="tour-rating">
+                                                    <ul>
+                                                          <li><i class="fas fa-star"></i></li>
+                                                          <li><i class="fas fa-star"></i></li>
+                                                          <li><i class="fas fa-star"></i></li>
+                                                          <li><i class="fas fa-star"></i></li>
+                                                          <li><i class="fas fa-star-o"></i></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="tour_feature">
+                                                  <a href="#"><i class="fas fa-plane"></i></a>
+                                                  <a href="#"><i class="fas fa-building"></i></a>
+                                                  <a href="#"><i class="fas fa-utensils"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tour-desc-bottom">
+                                            <div class="tour-details">
+                                                <a href="{{nilecruise.get_absolute_url}}"><i class="fa fa-flag"></i> Book
+                                                    Now</a>
+                                            </div>
+                                            <div class="tour-desc-price">
+                                                <p>${{nilecruise.price}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="row">
+                          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tour Page End -->
+    {% endblock body%}

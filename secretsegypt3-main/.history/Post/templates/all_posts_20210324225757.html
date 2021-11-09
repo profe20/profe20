@@ -1,0 +1,72 @@
+
+
+{% extends "base2.html" %}
+{% block body %}
+<div class="jumbotron banner">
+    <a class="btn btn-primary btn-lg" href="{% url 'blog:create_post' %}" role="button">add new Post</a>
+</div>
+<section id="aa-properties">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="aa-properties-content">
+          <!-- start properties content head -->
+          <div class="aa-properties-content-head">
+            <div class="aa-properties-content-head-left">
+              <form action="" class="aa-sort-form">
+                <label for="">Sort by</label>
+                <select name="">
+                  <option value="1" selected="Default">Default</option>
+                  <option value="2">Name</option>
+                  <option value="3">Price</option>
+                  <option value="4">Date</option>
+                </select>
+              </form>
+              <form action="" class="aa-show-form">
+                <label for="">Show</label>
+                <select name="">
+                  <option value="1" selected="12">6</option>
+                  <option value="2">12</option>
+                  <option value="3">24</option>
+                </select>
+              </form>
+            </div>
+            <div class="aa-properties-content-head-right">
+
+                   {% for post in all_posts %}
+              <a id="aa-list-properties" href="#"><span class="fa fa-list"></span></a>
+          </div>
+          </div>
+          <!-- Start properties content body -->
+          <div class="aa-properties-content-body">
+            <ul class="aa-properties-nav">
+              <li>
+                <article class="aa-properties-item">
+                  <a class="aa-properties-item-img" href="#">
+                  {% if post.image %}
+                     <img alt="img" src="{{post.image.url}}">
+                  {% endif %}
+                  </a>
+                  <div class="aa-tag for-rent">
+
+                  </div>
+                  <div class="aa-properties-item-content">
+                    <div class="aa-properties-info">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    <span></span>
+                    </div>
+                    <div class="aa-properties-about">
+                      <h3><a href="#">{{post}}</a></h3>
+                      <p>{{post.content|safe|truncatewords:30}}</p>
+                    </div>
+                    <div class="aa-properties-detial">
+                      <span class="aa-price">
+
+                      </span>
+                      <a class="aa-secondary-btn" href="{% url 'blog:post' post.id %}">View Details</a>
+                    </div>
+
+  {% endfor %}
+  {% endblock body%}

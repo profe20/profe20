@@ -1,0 +1,425 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+{% load bootstrap4 %}
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+<style media="screen">
+  button,
+  input {
+      font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .nav-link{
+      color: #f96332;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+      color: #f96332;
+  }
+
+  p {
+      line-height: 1.61em;
+      font-weight: 300;
+      font-size: 1.2em;
+  }
+
+  .category {
+      text-transform: capitalize;
+      font-weight: 700;
+      color: #9A9A9A;
+  }
+
+  .nav-item .nav-link,
+  .nav-tabs .nav-link {
+      -webkit-transition: all 300ms ease 0s;
+      -moz-transition: all 300ms ease 0s;
+      -o-transition: all 300ms ease 0s;
+      -ms-transition: all 300ms ease 0s;
+      transition: all 300ms ease 0s;
+  }
+
+  .cardnav .nav-link {
+      -webkit-transition: all 150ms ease 0s;
+      -moz-transition: all 150ms ease 0s;
+      -o-transition: all 150ms ease 0s;
+      -ms-transition: all 150ms ease 0s;
+      transition: all 150ms ease 0s;
+  }
+
+  [data-toggle="collapse"][data-parent="#accordion"] i {
+      -webkit-transition: transform 150ms ease 0s;
+      -moz-transition: transform 150ms ease 0s;
+      -o-transition: transform 150ms ease 0s;
+      -ms-transition: all 150ms ease 0s;
+      transition: transform 150ms ease 0s;
+  }
+
+  [data-toggle="collapse"][data-parent="#accordion"][aria-expanded="true"] i {
+      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
+  }
+
+
+  .fa {
+      display: inline-block;
+      font: normal normal normal 14px/1 'Nucleo    Outline';
+      font-size: inherit;
+      speak: none;
+      text-transform: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+  }
+
+  @-webkit-keyframes nc-icon-spin {
+      0% {
+          -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+          -webkit-transform: rotate(360deg);
+      }
+  }
+
+  @-moz-keyframes nc-icon-spin {
+      0% {
+          -moz-transform: rotate(0deg);
+      }
+
+      100% {
+          -moz-transform: rotate(360deg);
+      }
+  }
+
+  @keyframes nc-icon-spin {
+      0% {
+          -webkit-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+      }
+
+      100% {
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+      }
+  }
+
+
+  .nav-tabs {
+      border: 0;
+      padding: 15px 0.7rem;
+  }
+
+  .nav-tabs:not(.nav-tabs-neutral)>.nav-item>.nav-link.active {
+      box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .cardnav .nav-tabs {
+      border-top-right-radius: 0.1875rem;
+      border-top-left-radius: 0.1875rem;
+  }
+
+  .nav-tabs>.nav-item>.nav-link {
+      color: #888888;
+      margin: 0;
+      margin-right: 5px;
+      background-color: transparent;
+      border: 1px solid transparent;
+      border-radius: 30px;
+      font-size: 14px;
+      padding: 11px 23px;
+      line-height: 1.5;
+  }
+
+  .nav-tabs>.nav-item>.nav-link:hover {
+      background-color: transparent;
+  }
+
+  .nav-tabs>.nav-item>.nav-link.active {
+      background-color: #ff6e00;
+      border-radius: 30px;
+      color: #FFFFFF;
+  }
+
+  .nav-tabs>.nav-item>.nav-link i.now-ui-icons {
+      font-size: 14px;
+      position: relative;
+      top: 1px;
+      margin-right: 3px;
+  }
+
+  .nav-tabs.nav-tabs-neutral>.nav-item>.nav-link {
+      color: #FFFFFF;
+  }
+
+  .nav-tabs.nav-tabs-neutral>.nav-item>.nav-link.active {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+  }
+
+  .cardnav {
+      border: 0;
+      border-radius: 0.1875rem;
+      display: inline-block;
+      position: relative;
+      width: 100%;
+      margin-bottom: 30px;
+      box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .cardnav .card-header {
+      background-color: transparent;
+      border-bottom: 0;
+      background-color: transparent;
+      border-radius: 0;
+      padding: 0;
+  }
+
+      color: #FFFFFF;
+  }
+
+
+  @font-face {
+    font-family: 'Nucleo Outline';
+    src: url("https://github.com/creativetimofficial/now-ui-kit/blob/master/assets/fonts/nucleo-outline.eot");
+    src: url("https://github.com/creativetimofficial/now-ui-kit/blob/master/assets/fonts/nucleo-outline.eot") format("embedded-opentype");
+    src: url("https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/fonts/nucleo-outline.woff2");
+    font-weight: normal;
+    font-style: normal;
+
+  }
+
+
+  @media screen and (max-width: 768px) {
+
+      .nav-tabs {
+          display: inline-block;
+          width: 110%;
+          padding-left: 100px;
+          padding-right: 100px;
+          text-align: center;
+      }
+
+      .nav-tabs .nav-item>.nav-link {
+          margin-bottom: 5px;
+      }
+
+      .tab
+      {
+           justify-content:center;
+      }
+  }
+</style>
+
+<!-- Breadcrumb Area Start -->
+<section class="peulis-breadcrumb-area">
+   <div class="breadcrumb-top">
+      <div class="container">
+         <div class="col-lg-12">
+            <div class="breadcrumb-box">
+               <h2>Tour Aswan</h2>
+               <ul class="breadcrumb-inn">
+                  <li><a href="{% url 'project:index'%}">Home</a></li>
+                  <li class="active"><a href="{% url 'project:index'%}">Tour Details</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Breadcrumb Area End -->
+
+
+<!-- Tour Details Area Start -->
+<section class="peulis-tour-details-area section_70">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-8">
+            <div class="tour-details-left">
+               <div class="tour-details-head">
+                  <h3>{{object.name}} <span> <span class="tour_price">{{object.price}}$</span> / per person </span></h3>
+                  <div class="tour-rating">
+                     <ul>
+                        <li><i class="fas fa-star"></i></li>
+                        <li><i class="fas fa-star"></i></li>
+                        <li><i class="fas fa-star"></i></li>
+                        <li><i class="fas fa-star"></i></li>
+                        <li><i class="fas fa-star-o"></i></li>
+                     </ul>
+                     <p>(2 Review) </p>
+                  </div>
+               </div>
+               <div class="tour-details-image">
+                 <img src="{{aswan.image.url}}" alt="Tour"  style="margin-left:2.5%" /> </div>
+                 <!--tabs-->
+
+
+                                                                      <div class="container mt-5" >
+                                                                        <div class="row tab">
+                                                                          <div class="col-12 col-md-12">
+                                                                            <div class="card cardnav">
+                                                                              <div class="card-header">
+                                                                                <ul class="nav nav-tabs justify-content-center" role="tablist">
+                                                                                  <li class="nav-item">
+                                                                                    <a class="nav-link active" data-toggle="tab" href="#description" role="tab">
+                                                                                    <i class="fas fa-info-circle"></i> DESCRIPTION
+                                                                                    </a>
+
+                                                                                  </li>
+                                                                                  <li class="nav-item">
+                                                                                    <a class="nav-link" data-toggle="tab" href="#itinerary" role="tab">
+                                                                                    <i class="fas fa-road"></i> ITINERARY
+                                                                                    </a>
+                                                                                  </li>
+                                                                                  <li class="nav-item">
+                                                                                    <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">
+                                                                                      <i class="fas fa-comment"></i> REVIEWS
+                                                                                    </a>
+                                                                                  </li>
+
+                                                                                </ul>
+                                                                              </div>
+                                                                              <div class="card-body">
+                                                                                <!-- Tab panes -->
+                                                                                <div class="tab-content text-center">
+                                                                                  <div class="tab-pane active" id="description" role="tabpanel">
+                                                                                           <p>{{object.description|safe}}</p>
+                                                                                  </div>
+                                                                                  <div class="tab-pane" id="itinerary" role="tabpanel" style="text-align:left">
+                                                                                             <p>{{object.itinerary|safe}}</p>
+                                                                                  </div>
+                                                                                  <div class="tab-pane" id="reviews" role="tabpanel">
+                                                                                    <div class="peulis-leave-comment">
+                                                                                       <h3>Leave a Review</h3>
+
+                                                                                       <form>
+                                                                                          <div class="row">
+                                                                                             <div class="col-lg-12">
+                                                                                                <div class="comment-field">
+                                                                                                   <p>Rating :</p>
+                                                                                                   <div class="star-rating" >
+                                                                                                      <input id="star-5" type="radio" name="rating" value="star-5">
+                                                                                                      <label for="star-5" title="5 stars">
+                                                                                                      <i class="fas fa-star"></i>
+                                                                                                      </label>
+                                                                                                      <input id="star-4" type="radio" name="rating" value="star-4">
+                                                                                                      <label for="star-4" title="4 stars">
+                                                                                                      <i class="fas fa-star active"></i>
+                                                                                                      </label>
+                                                                                                      <input id="star-3" type="radio" name="rating" value="star-3">
+                                                                                                      <label for="star-3" title="3 stars">
+                                                                                                      <i class="fas fa-star active"></i>
+                                                                                                      </label>
+                                                                                                      <input id="star-2" type="radio" name="rating" value="star-2">
+                                                                                                      <label for="star-2" title="2 stars">
+                                                                                                      <i class="fas fa-star active"></i>
+                                                                                                      </label>
+                                                                                                      <input id="star-1" type="radio" name="rating" value="star-1">
+                                                                                                      <label for="star-1" title="1 star">
+                                                                                                        <i class="fas fa-star active"></i>
+                                                                                                      </label>
+                                                                                                   </div>
+                                                                                                </div>
+                                                                                             </div>
+                                                                                          </div>
+                                                                                          <div class="row">
+                                                                                             <div class="col-lg-12">
+                                                                                                <div class="comment-field">
+                                                                                                   <textarea class="comment" placeholder="Comment..." name="comment"></textarea>
+                                                                                                </div>
+                                                                                             </div>
+                                                                                          </div>
+                                                                                          <div class="row">
+                                                                                             <div class="col-lg-6">
+                                                                                                <div class="comment-field">
+                                                                                                   <input class="ns-com-name" name="name" placeholder="Name" type="text">
+                                                                                                </div>
+                                                                                             </div>
+                                                                                             <div class="col-lg-6">
+                                                                                                <div class="comment-field">
+                                                                                                   <input class="ns-com-name" name="email" placeholder="Email" type="email">
+                                                                                                </div>
+                                                                                             </div>
+                                                                                          </div>
+                                                                                          <div class="row">
+                                                                                             <div class="col-lg-12">
+                                                                                                <div class="comment-field"  style="text-align:center; justify-content:center;">
+                                                                                                   <button type="submit" class="peulis-theme-btn">post comment</button>
+                                                                                                </div>
+                                                                                             </div>
+                                                                                          </div>
+                                                                                       </form>
+                                                                                    </div>
+                                                                                  </div>
+                                                                                </div>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+
+                                                                        </div>
+                                                                      </div>
+               <div class="tour-gallery">
+                  <h3>Gallery</h3>
+                  <div class="tour-gallery-slider owl-carousel">
+                     {% for image in object.aswan_Images.all %}
+                     <div class="single-gallery-tour">
+                        <img src="{{image.image.url}}" alt="tour" />
+                     </div>
+                     {% endfor %}
+                  </div>
+               </div>
+
+               <div class="peulis-leave-comment">
+                  <h3></h3>
+                  <div id="disqus_thread"></div>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-4">
+
+            <div class="sidebar-widget">
+               <div class="single-sidebar">
+                  <div class="quick-contact">
+                     <h3>Book This Tour</h3>
+                     <form method="post" class="form">
+                        {% csrf_token %}
+
+                        {% bootstrap_form form %}
+                        {% buttons %}
+
+                        <div class="book-tour-field">
+                           <button type="submit">Book Now</button>
+                        </div>
+                        {% endbuttons %}
+                     </form>
+                  </div>
+                  <div class="book-tour-field">
+
+                  </div>
+                  </form>
+               </div>
+            </div>
+
+
+
+            <div class="single-sidebar">
+
+               <img src=" {% static 'assets/img/destination.jpg'%}" alt="destination" />
+            </div>
+         </div>
+      </div>
+
+</section>
+<!-- Tour Details Area End -->\
+
+
+{% endblock body%}

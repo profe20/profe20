@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load bootstrap4 %}
+
+<!-- Breadcrumb Area Start -->
+     <section class="peulis-breadcrumb-area">
+        <div class="breadcrumb-top">
+           <div class="container">
+              <div class="col-lg-12">
+                 <div class="breadcrumb-box">
+                    <h2>Contact Us</h2>
+                     <ul class="breadcrumb-inn">
+                       <li><a href="{% url 'project:index'%}">Home</a></li>
+                       <li class="active"><a href="{% url 'project:index'%}">Contact Us</a></li>
+                     </ul>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </section>
+
+     <section class="peulis-contact-area section_70">
+       <div class="container">
+         <div class="row">
+              <div class="col-lg-7">
+           <div class="contact-left">
+
+                      <h3>Send Us a Message</h3>
+
+             <div class="row">
+
+
+        <div class="col-lg-10">
+          <form method = "Post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.media }}
+            {% bootstrap_form form %}
+            {% buttons %}
+                  <button type="submit" class="btn btn-primary">Save post</button>
+             {% endbuttons %}
+          </form>
+                           </div>
+                        </div>
+
+        </div>
+          </div>
+          </div>
+        <div class="col-lg-4">
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="ti-home"></i></span>
+            <div class="media-body">
+
+             </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+           <div class="contact-right">
+              <h3>Contact Details</h3>
+              <div class="contact-info-item">
+                 <div class="contact-info-icon">
+                    <i class="fa fa-home"></i>
+                 </div>
+                 <div class="contact-info-desc">
+                    <span>Phone:</span>
+                    <ul>
+                       <li>{{myinfo.phone_number}}</li>
+
+                    </ul>
+                 </div>
+              </div>
+              <div class="contact-info-item">
+                 <div class="contact-info-icon">
+                    <i class="fa fa-envelope"></i>
+                 </div>
+                 <div class="contact-info-desc">
+                    <span>Email:</span>
+                    <ul>
+                       <li>{{myinfo.email}}</li>
+
+                    </ul>
+                 </div>
+              </div>
+              <div class="contact-info-item">
+                 <div class="contact-info-icon">
+                    <i class="fa fa-map-marker"></i>
+                 </div>
+                 <div class="contact-info-desc">
+                    <span>Address:</span>
+                    <li>{{myinfo.place}}</li>
+
+                    <ul>
+
+
+                    </ul>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+
+</section>
+<!-- Contact Area End -
+
+
+
+
+  {% endblock body %}

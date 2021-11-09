@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block body %}
+{% load static %}
+
+
+    <!-- Breadcrumb Area Start -->
+    <section class="peulis-breadcrumb-area">
+      <div class="breadcrumb-top">
+          <div class="container">
+              <div class="col-lg-12">
+                  <div class="breadcrumb-box">
+                      <h2>About Us</h2>
+                      <ul class="breadcrumb-inn">
+                          <li><a href="index.html">Home</a></li>
+                          <li class="active"><a href="#">about Us</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Breadcrumb Area End -->
+
+
+  <!-- About Page Start -->
+  <section class="peulis-about-page section_70">
+      <div class="container">
+          <div class="row">
+            {% for about in object_list %}
+              <div class="col-lg-6">
+                  <div class="about-page-left">
+                      <h3>About Us</h3>
+                      <h2>Who We Are</h2>
+                      <p>{{about.Who_We_Are}}</p>
+                      <div class="about-signature">
+                          <div class="signature-left">
+                            <img src="{{about.Who_image.url}}" alt="signature">
+                          </div>
+                          <div class="signature-right">
+                              <h3>Robertho Garcia</h3>
+                              <p>Founder</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                  <div class="about-page-right">
+                      <img src="{{about.Who_image.url}}" alt="about page" />
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- About Page End -->
+
+
+  <!-- Story Area Start -->
+  <section class="peulis-story-area">
+      <div class="story-area-top">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="story-box">
+                          <h2>Our Story</h2>
+                          <p>{{about.Our_Story}}</p>
+                      </div>
+                        
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="story-area-bottom">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="story-box">
+                          <h2>Our Values</h2>
+                          <p>{{about.Our_Values2}}</p>
+                      </div>
+                {% endfor %}     
+
+                  </div>
+              </div>
+           
+          </div>
+      </div>
+  </section>
+  <!-- Story Area End -->
+
+
+ <!-- Discount Area Start -->
+ <section class="peulis-discount-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="discount-box">
+                    <img class="discount_vector" src="{% static  'assets/img/discount_single.png'%}" alt="Travel Discount" />
+                    <div id="container">
+                        <div class="discount_desc" id="inner">
+                            <h4>Travel Adventures</h4>
+                            <h2>25% off</h2>
+                            <p>Spend a best Holidays with us</p>
+                            <div class="descount_btn">
+                                <!--<a href="#"><img src="{% static  'assets/img/a1.jpg'%}" alt="appstore" /></a>
+                                <a href="#"><img src="{% static  'assets/img/a1.jpg'%}" alt="playstore" /></a>
+                                --></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Discount Area End -->
+
+ 
+{% endblock body%}

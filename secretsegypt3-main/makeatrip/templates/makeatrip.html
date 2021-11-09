@@ -1,0 +1,55 @@
+
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block body %}
+<section class="peulis-breadcrumb-area">
+   <div class="breadcrumb-top">
+      <div class="container">
+         <div class="col-lg-12">
+            <div class="breadcrumb-box">
+               <h2>Contact Us</h2>
+                <ul class="breadcrumb-inn">
+                  <li><a href="{% url 'project:index'%}">Home</a></li>
+                  <li class="active"><a href="{% url 'project:index'%}">Contact Us</a></li>
+                </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+<section class="peulis-contact-area section_70">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-10">
+            <div class="contact-left">
+               <h3>Send Us a Message</h3>
+               <div class="tour-desc-bottom">
+                  <div class="tour-details">
+ <form method = "Post" enctype="multipart/form-data">
+   {% csrf_token %}
+   {{ form.media }}
+   <div class="tour-desc-bottom">
+     {% bootstrap_form form %}
+     {% buttons %}
+      <div class="tour-details">
+   {% bootstrap_form form %}
+   {% buttons %}
+   <div class="book-tour-field">
+      <button type="submit" >Book Now </button>
+   </div>
+    {% endbuttons %}
+ </form>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Area End -->
+
+
+
+ {% endblock body%}

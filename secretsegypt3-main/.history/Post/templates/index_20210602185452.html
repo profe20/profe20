@@ -1,0 +1,1061 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Peulis | Travel Agency & Tourism HTML Template">
+    <meta name="keyword" content="travel, tourism, agency, tourist">
+    <meta name="author" content="Themescare">
+    <!-- Title -->
+    <title>secrets-egypt.com</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <!--Bootstrap css-->
+    <link rel="stylesheet" href="{% static  'assets/css/bootstrap.css'%}">
+    <!--Font Awesome css-->
+
+    <link rel="stylesheet" href=" {% static  'assets/css/font-awesome.min.css'%}">
+    <!--Flaticon css-->
+
+    <link rel="stylesheet" href="{% static  'assets/flaticon/flaticon.css'%}">
+    <!--Animatedheadline css-->
+
+    <link rel="stylesheet" href="{% static   'assets/css/jquery.animatedheadline.css'%}">
+    <!--Magnific css-->
+
+    <link rel="stylesheet" href=" {% static  'assets/css/magnific-popup.css'%}">
+    <!--Owl-Carousel css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href=" {% static  'assets/css/owl.theme.default.min.css'%}">
+
+
+    <!--Animate css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/animate.min.css'%}">
+    <!--Datepicker css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/jquery.datepicker.css'%}">
+
+    <!--Nice Select css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/nice-select.css'%}">
+
+    <!--Slicknav css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/slicknav.min.css'%}">
+
+    <!--Site Main Style css-->
+    <link rel="stylesheet" href="  {% static  'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+
+<body>
+
+
+    <!--Preloader Start-->
+    <div class="preloader">
+        <div class="loading-text">
+            <span class="loading-text-words" data-preloader="L">L</span>
+            <span class="loading-text-words" data-preloader="O">O</span>
+            <span class="loading-text-words" data-preloader="A">A</span>
+            <span class="loading-text-words" data-preloader="D">D</span>
+            <span class="loading-text-words" data-preloader="I">I</span>
+            <span class="loading-text-words" data-preloader="N">N</span>
+            <span class="loading-text-words" data-preloader="G">G</span>
+        </div>
+    </div>
+    <!--Preloader End-->
+
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-2c4946e5-0acd-4fd4-93cd-faeffac64987"></div>
+    <!-- Header Area Start -->
+    <header class="peulis-header-area">
+        <!-- Header Top Area Start -->
+        <div class="header-top-area">
+            <div class="container">
+               <div class="row">
+                 {% for Info in Infoo %}
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="header-top-left">
+                            <p>
+                                <i class="fa fa-envelope"></i>
+                                {{Info.email}}
+                            </p>
+                            <p>
+                                <i class="fa fa-phone"></i>
+                              {{Info.phone_number}}
+                            </p>
+                        </div>
+                    </div>
+                  {% endfor %}
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="header-top-right">
+                            <div class="header-top-social">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="header-top-auth">
+                                <ul>
+                                    <li><i class="fa fa-user"></i></li>
+                                    {% if request.user.is_authenticated %}
+                                      <li><a href="{% url 'logout'%}">logout  </a></li>
+                                      <li><a href="  {% url 'accounts:profile_edit'%}">profile_edit </a></li>
+
+                                       {% else %}
+
+                                     <li class="separator"><a href="{% url 'accounts:user_login'%}">Login</a></li>
+                                     <li><a href="{% url 'accounts:signup'%}">Register</a></li>
+                                     {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Top Area End -->
+
+        <!-- Main Header Area Start -->
+        <div class="main-header-area">
+            <div class="container">
+
+                <div class="row">
+                        
+                    <div class="col-lg-12">
+                        <div class="header_inn">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="site-logo">
+                                        <a href="index.html">
+                                            <img src="{% static 'assets/img/logo.png'%}"  alt="Peulis" />
+
+                                        </a>
+                                    </div>
+                                    <!-- Responsive Menu Start -->
+                                    <div class="peulis-responsive-menu"></div>
+                                    <!-- Responsive Menu End -->
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="mainmenu">
+                                        <nav>
+                                            <ul id="navigation_menu">
+                                                <li class="active"><a href="{% url 'project:index'%}">Home</a></li>
+                                                <li>
+                                                    <a href="#">Pages</a>
+                                                    <ul>
+                                                        <li><a href="{% url 'about:aboutList'%}">About Us</a></li>
+                                                        <li><a href="{% url 'about:gallery_List' %}">Gallery</a></li>
+                                                        <li><a href="{% url 'accounts:signup'%}">Register</a></li>
+                                                        <li><a href="{% url 'accounts:user_login'%}">Login</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'nilecruise:cnilecruise_list'%}">Tour Nile Cruise</a>
+
+                                                </li>
+                                                <li>
+
+                                                </li>
+                                                <li>
+
+
+                                                    <a href="#">tours</a>
+                                                    <ul>
+                                                        <li><a href="{% url 'packages:packages_list'%}">Tour packagese</a></li>
+                                                        <li><a href="{% url 'luxortour:luxortour_list'%}">Tour luxor</a></li>
+                                                        <li><a href="{% url 'aswan:aswan_list'%}">Tour aswan</a></li>
+                                                        <li><a href="{% url 'cairotour:cairotour_list'%}">Tour cairo</a></li>
+                                                        <li><a href="{% url 'makeatrip:upload_book'%}">Makeatrip</a></li>
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'project:all_posts' %}">Blog</a>
+
+
+                                                <li><a href="{% url 'contact:contact' %}">Contact</a></li>
+                                              </li>
+                                              <li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="header_action">
+                                        <ul>
+                                            <li class="header-search">
+                                                <a href="#" class="search-btn">
+                                                    <i class="fa fa-search"></i>
+                                                </a>
+                                                <div class="search-box search-elem">
+                                                    <span class="search-close"></span>
+                                                    <div class="inner row">
+                                                        <form>
+                                                            <input type="search" placeholder="Type to Search...">
+                                                            <button type="submit"><i class="fa fa-search"></i></button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li><a href="#" id="sidenav-toggle"><i class="fa fa-bars"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Header Area End -->
+    </header>
+    <!-- Header Area End -->
+
+
+    <!-- Slider Area Start -->
+    {% for slideImages in slideImages %}
+    <section class="peulis-slider-area overlay">
+
+        <div class="peulis-slide owl-carousel">
+          <!--  <div class="slider-container slider-1">-->
+
+                <div class="single-slider zoom"><img src="{{slideImages.image3.url}}"></div>
+          <!--  </div>-->
+          <!--  <div class="slider-container slider-2">-->
+                <div class="single-slider zoom"><img src="{% static  'assets/img/25.jpg'%}"></div>
+          {% endfor %}
+
+          <!--  </div>-->
+        </div>
+        <div class="banner-area">
+            <div class="banner-caption">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 content-home">
+                            <div class="banner-welcome">
+                                <h4 class="text">Travel With Us</h4>
+                                <div class="caption-inner">
+                                    <div class="ah-headline">
+                                        <span class="typed-static">Secrets of Egypt</span>
+                                        <span class="ah-words-wrapper">
+                                            <b class="is-visible"> Luxor</b>
+                                            <b> Aswan</b>
+                                            <b> Hurghada</b>
+                                        </span>
+                                    </div>
+                                </div>
+                                <form>
+                                    <p>
+                                        <i class="fa fa-map-marker"></i>
+                                        <input type="text" placeholder="#" />
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-calendar"></i>
+                                        <select class="wide">
+                                            <option>Month</option>
+                                            <option>January</option>
+                                            <option>February</option>
+                                            <option>March</option>
+                                            <option>April</option>
+                                            <option>May</option>
+                                            <option>June</option>
+                                            <option>July</option>
+                                            <option>August</option>
+                                            <option>September</option>
+                                            <option>October</option>
+                                            <option>November</option>
+                                            <option>December</option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-thumb-tack"></i>
+                                        <select class="wide">
+                                            <option>Tour Type</option>
+                                            {% for place in places %}
+                                            <option>{{place}}</option>
+                                            {%endfor%}
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <button type="submit"><i class="fa fa-map-marker"></i> Find Now</button>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Slider Area End -->
+    <!-- Destination Area Start -->
+    <section class="peulis-destination-area section_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="site-heading">
+                        <h2>Destinations</h2>
+                        <p>Lorem ipsum dolor sit amet, conseetuer adipiscing elit. Aenan comdo igula eget. Aenean massa cum sociis Theme natoque.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="destination-slider owl-carousel">
+                        <div class="single-destination">
+                            <a href="#">
+                                <div class="destination-image">
+                                    <img src="{% static  'assets/img/l.jpg'%}" alt="destination" />
+                                    <div class="destination-title">
+                                        <h3>Luxor</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="single-destination">
+                            <a href="#">
+                                <div class="destination-image">
+                                    <img src="{% static  'assets/img/as.jpg'%}" alt="destination" />
+                                    <div class="destination-title">
+                                        <h3>Aswan</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="single-destination">
+                            <a href="destination-single.html">
+                                <div class="destination-image">
+                                    <img src="{% static  'assets/img/Hurghada_41210.jpg'%}" alt="destination" />
+                                    <div class="destination-title">
+                                        <h3>Hurghada</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="single-destination">
+                            <a href="#">
+                                <div class="destination-image">
+                                    <img src="{% static  'assets/img/c.jpg'%}" alt="destination" />
+                                    <div class="destination-title">
+                                        <h3>Cairo</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Destination Area End -->
+
+    <!-- Popular Tours Area Start -->
+    <section class="peulis-popular-tours-area section_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="site-heading">
+                        <h2>tour packages</h2>
+                        <p>Egypt Tour Packages give you the chance to experience all what Egypt has to offer with our well-selected exclusive private Egypt Travel Packages. We are offering a wide range of tours to Egypt that suits any taste, mixing classic tours of Ancient Egypt with Nile cruises, city tours, diving holidays, and adventures in the desert. Check our trips to Egypt now and pick your favorite one!.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                {% for packages in packagess %}
+                <div class="col-lg-4">
+                    <div class="single-popular-tour">
+                        <div class="popular-tour-image">
+                            <img src="{{packages.image.url}}" alt="Popular Tours" />
+                            <div class="popular-tour-hover">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-share-alt"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="popular-tour-desc">
+                            <div class="tour-desc-top">
+                                <h3><a href="{{packages.get_absolute_url}}">{{packages}}</a></h3>
+                                <div class="tour_duration">
+                                    <p>
+                                        <i class="fa fa-hourglass-half"></i>
+                                        {{packages.description|safe|truncatewords_html:3}}
+                                    </p>
+                                </div>
+                                <div class="tour-desc-heading">
+                                    <div class="tour-rating">
+                                        <ul>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tour_feature">
+                                        <a href="#"><i class="fa fa-plane"></i></a>
+                                        <a href="#"><i class="fa fa-building-o"></i></a>
+                                        <a href="#"><i class="fa fa-cutlery"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-desc-bottom">
+                                <div class="tour-details">
+                                    <a href="{{packages.get_absolute_url}}"><i class="fa fa-flag"></i> Book Now</a>
+                                </div>
+                                <div class="tour-desc-price">
+                                    <p>${{packages.price}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- Popular Tours Area End -->
+
+
+    <!-- Popular Tours Area Start -->
+    <section class="peulis-popular-tours-area section_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="site-heading">
+                        <h2>Popular tours</h2>
+                        <p>Lorem ipsum dolor sit amet, conseetuer adipiscing elit. Aenan comdo igula eget. Aenean massa cum sociis Theme natoque.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                {% for luxortour in Propertyryt %}
+                <div class="col-lg-4">
+                    <div class="single-popular-tour">
+                        <div class="popular-tour-image">
+                            <img src="{{luxortour.image.url}}" alt="Popular Tours" />
+                            <div class="popular-tour-hover">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-share-alt"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="popular-tour-desc">
+                            <div class="tour-desc-top">
+                                <h3><a href="{{luxortour.get_absolute_url}}">{{luxortour}}</a></h3>
+                                <div class="tour_duration">
+                                    <p>
+                                        <i class="fa fa-hourglass-half"></i>
+                                        {{luxortour.description|safe|truncatewords_html:3}}
+                                    </p>
+                                </div>
+                                <div class="tour-desc-heading">
+                                    <div class="tour-rating">
+                                        <ul>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tour_feature">
+                                        <a href="#"><i class="fa fa-plane"></i></a>
+                                        <a href="#"><i class="fa fa-building-o"></i></a>
+                                        <a href="#"><i class="fa fa-cutlery"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-desc-bottom">
+                                <div class="tour-details">
+                                    <a href="{{luxortour.get_absolute_url}}"><i class="fa fa-flag"></i> Book Now</a>
+                                </div>
+                                <div class="tour-desc-price">
+                                    <p>${{luxortour.price}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% for aswan in aswanss %}
+                <div class="col-lg-4">
+                    <div class="single-popular-tour">
+                        <div class="popular-tour-image">
+                            <img src="{{aswan.image.url}}" alt="Popular Tours" />
+                            <div class="popular-tour-hover">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-share-alt"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="popular-tour-desc">
+                            <div class="tour-desc-top">
+                                <h3><a href="{{aswan.get_absolute_url}}">{{aswan}}</a></h3>
+                                <div class="tour_duration">
+                                    <p>
+                                        <i class="fa fa-hourglass-half"></i>
+                                        {{aswan.description|safe|truncatewords_html:3}}
+                                    </p>
+                                </div>
+                                <div class="tour-desc-heading">
+                                    <div class="tour-rating">
+                                        <ul>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tour_feature">
+                                        <a href="#"><i class="fa fa-plane"></i></a>
+                                        <a href="#"><i class="fa fa-building-o"></i></a>
+                                        <a href="#"><i class="fa fa-cutlery"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-desc-bottom">
+                                <div class="tour-details">
+                                    <a href="{{aswan.get_absolute_url}}"><i class="fa fa-flag"></i> Book Now</a>
+                                </div>
+                                <div class="tour-desc-price">
+                                    <p>${{aswan.price}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                {% for cairotour in cairoo %}
+                <div class="col-lg-4">
+                    <div class="single-popular-tour">
+                        <div class="popular-tour-image">
+                            <img src="{{cairotour.image.url}}" alt="Popular Tours" />
+                            <div class="popular-tour-hover">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-share-alt"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="popular-tour-desc">
+                            <div class="tour-desc-top">
+                                <h3><a href="{{cairotour.get_absolute_url}}">{{cairotour}}</a></h3>
+                                <div class="tour_duration">
+                                    <p>
+                                        <i class="fa fa-hourglass-half"></i>
+                                        {{cairotour.description|safe|truncatewords_html:3}}
+                                    </p>
+                                </div>
+                                <div class="tour-desc-heading">
+                                    <div class="tour-rating">
+                                        <ul>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tour_feature">
+                                        <a href="#"><i class="fa fa-plane"></i></a>
+                                        <a href="#"><i class="fa fa-building-o"></i></a>
+                                        <a href="#"><i class="fa fa-cutlery"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-desc-bottom">
+                                <div class="tour-details">
+                                    <a href="{{cairotour.get_absolute_url}}"><i class="fa fa-flag"></i> Book Now</a>
+                                </div>
+                                <div class="tour-desc-price">
+                                    <p>${{cairotour.price}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- Popular Tours Area End -->
+
+    <!-- Popular Tours Area Start -->
+    <section class="peulis-popular-tours-area section_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="site-heading">
+                        <h2>Nile cruise Luxor Aswan</h2>
+                        <p>The Nile Cruise from Luxor to Aswan takes 5 days and vice versa from Aswan to Luxor 4 days. You also have the option to go on a round Nile cruise from Luxor to Luxor or from Aswan to Aswan. In all these options the sightseeing tours are the same..</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                {% for nilecruise in Nilecruisee %}
+                <div class="col-lg-4">
+                    <div class="single-popular-tour">
+                        <div class="popular-tour-image">
+                            <img src="{{nilecruise.image.url}}" alt="Popular Tours" />
+                            <div class="popular-tour-hover">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-share-alt"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="popular-tour-desc">
+                            <div class="tour-desc-top">
+                                <h3><a href="{{aswan.get_absolute_url}}">{{nilecruise}}</a></h3>
+                                <div class="tour_duration">
+                                    <p>
+                                        <i class="fa fa-hourglass-half"></i>
+                                        {{nilecruise.description|safe|truncatewords_html:3}}
+                                    </p>
+                                </div>
+                                <div class="tour-desc-heading">
+                                    <div class="tour-rating">
+                                        <ul>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star-o"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tour_feature">
+                                        <a href="#"><i class="fa fa-plane"></i></a>
+                                        <a href="#"><i class="fa fa-building-o"></i></a>
+                                        <a href="#"><i class="fa fa-cutlery"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tour-desc-bottom">
+                                <div class="tour-details">
+                                    <a href="{{nilecruise.get_absolute_url}}"><i class="fa fa-flag"></i> Book Now</a>
+                                </div>
+                                <div class="tour-desc-price">
+                                    <p>${{nilecruise.price}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- Popular Tours Area End -->
+
+
+    <!-- Awesome Tour Area Start -->
+    <section class="peulis-awesome-tour-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="awesome-tour-box">
+                        <div class="video-btn">
+                            <a href="https://www.youtube.com/watch?v=mfxQy5A_tHs" class="popup-youtube">
+                                <i class="flaticon-play-button"></i>
+                            </a>
+                        </div>
+                        <h2>Go Ahead & Make Awesome Tour</h2>
+                        <p>Discover hidden wonders on trips With Peulis</p>
+                        <a href="#" class="peulis-btn">Explore More <i class="fa fa-angle-double-right"></i> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Awesome Tour Area End -->
+
+
+    <!-- Destination Area Start -->
+    <section class="peulis-destination-area section_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="site-heading">
+                        <h2>Destinations</h2>
+                        <p>Lorem ipsum dolor sit amet, conseetuer adipiscing elit. Aenan comdo igula eget. Aenean massa cum sociis Theme natoque.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="destination-slider owl-carousel">
+                        <div class="single-destination">
+                            <a href="#">
+                                <div class="destination-image">
+                                    <img src="{% static  'assets/img/l.jpg'%}" alt="destination" />
+                                    <div class="destination-title">
+                                        <h3>Luxor</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="single-destination">
+                            <a href="#">
+                                <div class="destination-image">
+                                    <img src="{% static  'assets/img/as.jpg'%}" alt="destination" />
+                                    <div class="destination-title">
+                                        <h3>Aswan</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="single-destination">
+                            <a href="destination-single.html">
+                                <div class="destination-image">
+                                    <img src="{% static  'assets/img/Hurghada_41210.jpg'%}" alt="destination" />
+                                    <div class="destination-title">
+                                        <h3>Hurghada</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="single-destination">
+                            <a href="#">
+                                <div class="destination-image">
+                                    <img src="{% static  'assets/img/c.jpg'%}" alt="destination" />
+                                    <div class="destination-title">
+                                        <h3>Cairo</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Destination Area End -->
+
+
+    <!-- Discount Area Start -->
+    <section class="peulis-discount-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="discount-box">
+                        <img class="discount_vector" src="{% static  'assets/img/discount_single.png'%}" alt="Travel Discount" />
+                        <div id="container">
+                            <div class="discount_desc" id="inner">
+                                <h4>Travel Adventures</h4>
+                                <h2>25% off</h2>
+                                <p>Spend a best Holidays with us</p>
+                                <div class="descount_btn">
+                                    <!--<a href="#"><img src="{% static  'assets/img/a1.jpg'%}" alt="appstore" /></a>
+                                    <a href="#"><img src="{% static  'assets/img/a1.jpg'%}" alt="playstore" /></a>
+                                    --></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Discount Area End -->
+
+
+    <!-- Choose Area Start -->
+    <section class="peulis-choose-area section_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="site-heading">
+                        <h2>Why Peulis?</h2>
+                        <p>Lorem ipsum dolor sit amet, conseetuer adipiscing elit. Aenan comdo igula eget. Aenean massa cum sociis Theme natoque.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="single-choose">
+                        <p>01</p>
+                        <div class="choose-image">
+                            <img src="{% static  'assets/img/aa.png'%}" alt="Safe Travel" />
+                        </div>
+                        <div class="choose-desc">
+                            <h3>Safe Travel</h3>
+                            <p>printing and typesetting industry has been printing the industry’s ipsum</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-choose">
+                        <p>02</p>
+                        <div class="choose-image">
+                            <img src="{% static  'assets/img/aa1.png'%}" alt="Awesome Guide" />
+                        </div>
+                        <div class="choose-desc">
+                            <h3>Awesome Guide</h3>
+                            <p>printing and typesetting industry has been printing the industry’s ipsum</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-choose">
+                        <p>03</p>
+                        <div class="choose-image">
+                            <img src="{% static  'assets/img/aa2.png'%}" alt="Save Money" />
+                        </div>
+                        <div class="choose-desc">
+                            <h3>Save Money</h3>
+                            <p>printing and typesetting industry has been printing the industry’s ipsum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Choose Area End -->
+
+
+    <!-- Reviews Area Start -->
+    <section class="peulis-reviews-area section_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="reviews-slider owl-carousel">
+                        <div class="single-reviews">
+                            <div class="reviews-image">
+                                <img src="{% static  'assets/img/p1.jpg'%}" alt="reviews-1" />
+                            </div>
+                            <div class="reviews-text">
+                                <div class="reviewer">
+                                    <h3>Luaka Smith</h3>
+                                </div>
+                                <p>"Dolor ipsum dolor sit amet, consectetuer adipiscing elit. Lorem commodo ligula eg dolor. Lorem Aenean msa. Cum sociis natoque"</p>
+                            </div>
+                        </div>
+                        <div class="single-reviews">
+                            <div class="reviews-image">
+                                <img src="{% static 'assets/img/p2.jpg'%}" alt="reviews-1" />
+                            </div>
+                            <div class="reviews-text">
+                                <div class="reviewer">
+                                    <h3>joseph steve</h3>
+                                </div>
+                                <p>"Dolor ipsum dolor sit amet, consectetuer adipiscing elit. Lorem commodo ligula eg dolor. Lorem Aenean msa. Cum sociis natoque"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Reviews Area End -->
+
+
+    <!-- Blog Area Start -->
+    <section class="peulis-blog-area section_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="site-heading">
+                        <h2>Latest Blog</h2>
+                        <p>Lorem ipsum dolor sit amet, conseetuer adipiscing elit. Aenan comdo igula eget. Aenean massa cum sociis Theme natoque.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for Post in Propertyrft %}
+                <div class="col-lg-6">
+                    <div class="single-blog-item">
+                        <div class="blog-image">
+                            <a href="single-blog.html">
+                                <img src="{{Post.image.url}}" alt="blog" />
+                            </a>
+                        </div>
+                        <div class="blog-desc">
+                            <div class="post-meta">
+                                <p class="date">{{Post.created}}</p>
+                                <p>By <a href="#">Admin</a></p>
+                                <p><a href="#">3 comments</a></p>
+                            </div>
+                            <h3><a href="{% url 'project:all_posts' %}">{{Post}}</a></h3>
+                            <p>{{Post.content|safe|truncatewords:30}}</p>
+                        </div>
+                    </div>
+                </div>
+               {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Blog Area End -->
+
+
+    <!-- Footer Area Start -->
+    <footer class="peulis-footer-area">
+        <div class="footer-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer">
+                            <p>ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.ipsum dolor sit amet, consectetur </p>
+                            <div class="footer-logo">
+                                <a href="index.html">
+                                    <img src="{% static  'assets/img/SecretsofEgypt.png'%}" alt="Peulis" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer">
+                            <h3>About Us</h3>
+                            <ul>
+                                <li><a href="{% url 'about:aboutList'%}">Why Us</a></li>
+                                <li><a href="{% url 'about:aboutList'%}">Why Touring</a></li>
+                                <li><a href="{% url 'about:aboutList'%}">Travel Insurance</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer">
+                            <h3>Support</h3>
+                            <ul>
+                                <li><a href="#">Account</a></li>
+                                <li><a href="#">Client Area</a></li>
+                                <li><a href="#">Privacy & Policy</a></li>
+                                <li><a href="#">Author Hangout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer">
+                            <h3>Pay Safely</h3>
+                            <p>Eiusmod tempor incididunt utbor etian dolm magna aliqua enim minim</p>
+                            <div class="payment_image">
+                                <img src="{% static  'assets/img/v1.png'%}" alt="Payment Card" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-bottom-box">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-6">
+                                    <div class="footer-bottom-left">
+                                        <p>&copy; Copyright  - By <a href="#"> profe mahmoud</a></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6">
+                                    <div class="footer-bottom-left">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+
+    <!-- Sidebar Navigation Start -->
+    <div class="ct-sidenav">
+        <button class="close"><i class="fa fa-times"></i></button>
+        <img src="{% static 'assets/img/logo.png'%}" alt="Site Logo" />
+        <div class="sidenav-info">
+            <p>Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since when an unknown printer took a galley of type and scrambled it to make a type specimen book.printing and typesetting industry It has survived not only five centuries.</p>
+            {% for Info in Infoo %}
+            <ul class="sidenav-contact-info">
+                <li>
+                    <i class="fa fa-map-marker"></i>
+                    <p>29 Division Pt <span>New York, NY 10002, USA</span></p>
+                </li>
+                <li>
+                    <i class="fa fa-phone"></i>
+                    <p> {{Info.email}} <span>Give us a call</span></p>
+                </li>
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <p> {{Info.phone_number}}}m<span>24/7 online support</span></p>
+                </li>
+            </ul>
+        </div>
+       {% endfor %}}
+        <div class="sidenav-social">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Sidebar Navigation End -->
+
+    <!--Jquery js-->
+
+
+    <script src="{% static 'assets/js/jquery.min.js'%}"></script>
+    <!-- Popper JS -->
+
+    <script src="{% static 'assets/js/popper.min.js'%}"></script>
+    <!--Bootstrap js-->
+
+    <script src=" {% static 'assets/js/bootstrap.min.js'%}"></script>
+    <!--Owl-Carousel js-->
+
+    <script src="{% static 'assets/js/owl.carousel.min.js'%}"></script>
+    <!--Animatedheadline js-->
+
+    <script src="{% static 'assets/js/jquery.animatedheadline.min.js'%}"></script>
+    <!--Slicknav js-->
+
+    <script src=" {% static 'assets/js/jquery.slicknav.min.js'%}"></script>
+    <!--Magnific js-->
+
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js'%}"></script>
+    <!-- Datepicker -->
+
+    <script src="{% static 'assets/js/jquery.datepicker.min.js'%}"></script>
+    <!--Nice Select js-->
+
+
+    <script src="{% static 'assets/js/jquery.nice-select.min.js'%}"></script>
+    <!-- Way Points JS -->
+
+    <script src="{% static 'assets/js/waypoints-min.js'%}"></script>
+    <!--Main js-->
+    <script src="{% static 'assets/js/main.js'%}"></script>
+</body
+</html>
